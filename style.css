@@ -5,7 +5,7 @@
      padding: 0;}
 
     
-    #accordeon li {
+#accordeon li {
         width: 107px;
         overflow:hidden;
         transition: width .5s;
@@ -14,5 +14,6 @@
         margin: 3px;
         padding: 5px;
         border-radius: 20px;
-       
       }
+
+      
