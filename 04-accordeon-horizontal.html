@@ -1,27 +1,67 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Accordéon horizontal</title>
+  
+<style>
+      #accordeon 
+{
+    display:flex;
+     margin: 0;
+     padding: 0;}
 
-    <Link rel = "styleSheet" href = "style.css" >  </head>
-  
-  
+    
+#accordeon li {
+
+        width: 107px;
+        overflow:hidden;
+        transition: width .5s;
+        background-color: #EEE;
+        list-style-type: none;
+        margin: 3px;
+        padding: 5px;
+        border-radius: 20px
+      }
+
+#accordeon li.actif {
+        width: 317px;
+        }
+
+#accordeon li figure {
+      align-items:left;
+      margin: 0;
+      width: 317px;
+          }
+
+#accordeon li figure figcaption {
+  width: 200px;
+  padding-left: 10px;
+  display: table-cell;
+  vertical-align: top;}
+
+</style>
+    </head>
   
   <body>
-    <ul id="accordeon">
-      <li>
+    <ul id="accordeon" x-data="{isOpen: 0}" >
+      <li :class="{actif:isOpen === 1}"    @click="isOpen=1">     
+  
         <figure>
           <img src="https://picsum.photos/100?random=1" alt="" width="102">
+
           <figcaption>
             <h3>Lorem, ipsum dolor.</h3>
             <p>Lorem ipsum dolor sit amet consectetur.</p>
           </figcaption>
         </figure>
       </li>
-      <li>
+      <li :class="{actif:isOpen === 2}"     @click="isOpen=2">
         <figure>
           <img src="https://picsum.photos/100?random=2" alt="" width="102">
           <figcaption>
@@ -30,7 +70,7 @@
           </figcaption>
         </figure>
       </li>
-      <li>
+      <li :class="{actif:isOpen === 3}"     @click="isOpen=3">
         <figure>
           <img src="https://picsum.photos/100?random=3" alt="" width="102">
           <figcaption>

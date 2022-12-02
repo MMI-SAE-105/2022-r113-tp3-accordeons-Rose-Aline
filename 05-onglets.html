@@ -1,12 +1,57 @@
 <!DOCTYPE html>
 <html lang="fr">
   <head>
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Onglets</title>
+
+    <style> 
+    #onglets
+    {position:relative}
+
+
+    [role="tabpanel"]
+    {position:absolute;
+    opacity: 0;}
+
+    [role="tabpanel"].actif
+    {opacity: 1}
+    
+    </style>
   </head>
+
+
+
   <body>
     <h1>Onglets</h1>
+    <div id="onglets" x-data="{ouvert : 0}">
+
+      <ul role="tablist">
+        <li role="tab"  @click="ouvert=1">Onglet 1</li>
+        <li role="tab"  @click="ouvert=2">Onglet 2</li>
+        <li role="tab"  @click="ouvert=3">Onglet 3</li>
+      </ul>
+
+
+      <div>
+        <div role="tabpanel" :class="{actif:ouvert === 1}">
+
+          <h1>Panneau 1</h1>
+          <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Iure in quidem necessitatibus aperiam, hic quo aliquam autem odio, eius reiciendis, eum odit. Deserunt recusandae hic itaque ratione, animi fugit accusamus!</p>
+        </div>
+        <div role="tabpanel" :class="{actif:ouvert === 2}">
+          <h1>Panneau 2</h1>
+          <p>Ex ipsam officia, deserunt quisquam sed nemo. Corrupti assumenda perspiciatis deleniti itaque fuga repellat voluptates, ut dolorem sint aperiam molestiae! Voluptas ad dolorem similique quasi esse ea in sapiente aliquid?</p>
+        </div>
+        <div role="tabpanel" :class="{actif:ouvert === 3}">
+
+          <h1>Panneau 3</h1>
+          <p>Quidem sequi dolorum excepturi sed, asperiores atque sapiente, vel iure quo delectus necessitatibus vero! Tenetur dolorum ipsam quisquam odio incidunt repellendus enim, veritatis maxime obcaecati, quasi commodi iusto at nulla?</p>
+        </div>
+    </div>
+    </div>
   </body>
 </html>
